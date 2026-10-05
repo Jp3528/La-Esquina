@@ -60,7 +60,7 @@ const MENU = [
     price: 18,
     tag: 'NUEVO',
     description: 'Pechuga extra crocante en pan brioche, queso cheddar, pepinillos y salsa tártara.',
-    image: 'assets/pollo-hero.png'
+    image: 'assets/sanguche-crispy.jpg'
   },
   {
     id: 'alitas-bbq',
@@ -69,7 +69,7 @@ const MENU = [
     price: 20,
     tag: 'CRUJIENTES',
     description: 'Alitas bañadas en barbacoa artesanal con toque de miel y papas fritas.',
-    image: 'assets/pollo-hero.png'
+    image: 'assets/alitas-bbq.jpg'
   },
   {
     id: 'tenders',
@@ -78,7 +78,7 @@ const MENU = [
     price: 19,
     tag: 'SIN HUESO',
     description: 'Tiras de pechuga empanizadas con panko y salsa honey mustard de la casa.',
-    image: 'assets/pollo-hero.png'
+    image: 'assets/tenders.jpg'
   },
   {
     id: 'papas-rusticas',
@@ -87,7 +87,7 @@ const MENU = [
     price: 8,
     tag: 'GUARNICIÓN',
     description: 'Papas amarillas crocantes con sal marina, orégano y crema de ají pollero.',
-    image: 'assets/pollo-hero.png'
+    image: 'assets/papas-rusticas.jpg'
   },
   {
     id: 'coleslaw',
@@ -96,7 +96,7 @@ const MENU = [
     price: 7,
     tag: 'FRESCO',
     description: 'Col morada, col blanca, zanahoria rallada y aderezo agridulce cremoso.',
-    image: 'assets/bucket-editorial.png'
+    image: 'assets/coleslaw.jpg'
   },
   {
     id: 'chicha',
@@ -105,7 +105,7 @@ const MENU = [
     price: 6,
     tag: 'NATURAL',
     description: 'Hervida a fuego lento con maíz morado, piña, manzana y canela de ceja de selva.',
-    image: 'assets/la-esquina-mark.png'
+    image: 'assets/chicha-morada.jpg'
   },
   {
     id: 'gaseosa',
@@ -114,7 +114,7 @@ const MENU = [
     price: 5,
     tag: 'HELADA',
     description: 'Bebida helada personal a elección (indicar en notas o al recibir).',
-    image: 'assets/la-esquina-mark.png'
+    image: 'assets/gaseosa.jpg'
   }
 ];
 

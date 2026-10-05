@@ -14,11 +14,18 @@ Plataforma web full-stack para restaurantes de comida rápida y locales de pollo
 ## ⚡ Características Principales
 
 ### 🛒 Experiencia del Cliente (Front-End)
-* **Catálogo Dinámico:** 11 opciones gastronómicas en 5 categorías (`combos`, `sandwiches`, `alitas`, `guarniciones`, `bebidas`) con buscador en tiempo real y filtrado instantáneo.
+* **Fotografía Gastronómica Dedicada:** Cada uno de los 11 productos cuenta con su propia fotografía publicitaria de alta resolución (pollo clásico, sánguche crispy, tenders, alitas BBQ, papas rústicas, coleslaw fresca, chicha morada artesanal y gaseosas heladas).
+* **Catálogo Dinámico:** Filtrado interactivo por categorías (`combos`, `sandwiches`, `alitas`, `guarniciones`, `bebidas`) con buscador predictivo en tiempo real.
 * **Canasta Persistente:** Cajón deslizante lateral con ajuste de cantidades, eliminación y cálculo automático de subtotales respaldado en `localStorage`.
-* **Checkout Flexible:** Selección entre **Recojo en tienda** (costo cero) y **Delivery express** (tarifa calculada con dirección validada y notas de entrega).
+* **Checkout Flexible:** Selección entre **Recojo en tienda** (costo cero) y **Delivery express** (tarifa plana fijada con dirección validada y notas de entrega).
 * **Confirmación por WhatsApp en 1 Clic:** Generación automática de enlace `wa.me` formateado con el desglose detallado de los productos, código de seguimiento, datos del cliente y dirección.
-* **Rastreador de Estado en Vivo (Live Order Tracker):** Stepper visual con 4 etapas (`1. Recibido` ➔ `2. En Cocina` ➔ `3. En Camino` ➔ `4. Entregado`), consultable en cualquier momento mediante el código único del pedido (`ESQ-XXXX`).
+* **Rastreador de Estado en Vivo (Live Order Tracker):** Stepper visual con 4 etapas (`1. Recibido` ➔ `2. En Cocina` ➔ `3. En Camino` ➔ `4. Entregado`), consultable mediante el código único del pedido (`ESQ-XXXX`) o por enlace directo (`?track=ESQ-XXXXX`).
+
+### ⚖️ Marco Legal & Transparencia Comercial
+* **Política de Privacidad (Ley N° 29733):** Cláusulas completas de protección de datos personales, limitando el uso exclusivo a la entrega del pedido y garantizando no compartición ni envío de spam.
+* **Términos y Condiciones del Servicio:** Especificación de moneda (Soles PEN con IGV), radio de entrega, métodos de pago contraentrega (efectivo, Yape, Plin), tiempos de preparación y política de cancelaciones.
+* **Libro de Reclamaciones Virtual (Ley N° 29571):** Formulario interactivo con generación de código de constancia (`REC-2026-XXXX`), almacenamiento local y derivación inmediata por WhatsApp.
+* **Protocolo de Seguridad:** Arquitectura zero-leak sin captura de datos financieros ni riesgos de clonación bancaria.
 
 ### 👨‍🍳 Panel de Recepción y Cocina (`#admin`)
 * **Autenticación Protegida:** Acceso administrativo mediante credenciales configurables con generación de tokens de sesión.

@@ -11,34 +11,34 @@ Plataforma web full-stack para restaurantes de comida rápida y locales de pollo
 
 ---
 
-## ⚡ Características Principales
+## Características Principales
 
-### 🛒 Experiencia del Cliente (Front-End)
+### Experiencia del Cliente (Front-End)
 * **Fotografía Gastronómica Dedicada:** Cada uno de los 11 productos cuenta con su propia fotografía publicitaria de alta resolución (pollo clásico, sánguche crispy, tenders, alitas BBQ, papas rústicas, coleslaw fresca, chicha morada artesanal y gaseosas heladas).
 * **Catálogo Dinámico:** Filtrado interactivo por categorías (`combos`, `sandwiches`, `alitas`, `guarniciones`, `bebidas`) con buscador predictivo en tiempo real.
 * **Canasta Persistente:** Cajón deslizante lateral con ajuste de cantidades, eliminación y cálculo automático de subtotales respaldado en `localStorage`.
 * **Checkout Flexible:** Selección entre **Recojo en tienda** (costo cero) y **Delivery express** (tarifa plana fijada con dirección validada y notas de entrega).
 * **Confirmación por WhatsApp en 1 Clic:** Generación automática de enlace `wa.me` formateado con el desglose detallado de los productos, código de seguimiento, datos del cliente y dirección.
-* **Rastreador de Estado en Vivo (Live Order Tracker):** Stepper visual con 4 etapas (`1. Recibido` ➔ `2. En Cocina` ➔ `3. En Camino` ➔ `4. Entregado`), consultable mediante el código único del pedido (`ESQ-XXXX`) o por enlace directo (`?track=ESQ-XXXXX`).
+* **Rastreador de Estado en Vivo (Live Order Tracker):** Stepper visual con 4 etapas (`1. Recibido` -> `2. En Cocina` -> `3. En Camino` -> `4. Entregado`), consultable mediante el código único del pedido (`ESQ-XXXX`) o por enlace directo (`?track=ESQ-XXXXX`).
 
-### ⚖️ Marco Legal & Transparencia Comercial
+### Marco Legal & Transparencia Comercial
 * **Política de Privacidad (Ley N° 29733):** Cláusulas completas de protección de datos personales, limitando el uso exclusivo a la entrega del pedido y garantizando no compartición ni envío de spam.
 * **Términos y Condiciones del Servicio:** Especificación de moneda (Soles PEN con IGV), radio de entrega, métodos de pago contraentrega (efectivo, Yape, Plin), tiempos de preparación y política de cancelaciones.
 * **Libro de Reclamaciones Virtual (Ley N° 29571):** Formulario interactivo con generación de código de constancia (`REC-2026-XXXX`), almacenamiento local y derivación inmediata por WhatsApp.
 * **Protocolo de Seguridad:** Arquitectura zero-leak sin captura de datos financieros ni riesgos de clonación bancaria.
 
-### 👨‍🍳 Panel de Recepción y Cocina (`#admin`)
+### Panel de Recepción y Cocina (`#admin`)
 * **Autenticación Protegida:** Acceso administrativo mediante credenciales configurables con generación de tokens de sesión.
 * **Gestión de Comandas:** Visualización completa de pedidos entrantes, datos de contacto con marcado rápido (`tel:`), notas especiales y actualización de estados en tiempo real.
 
-### ⚙️ Arquitectura Híbrida (Vercel Serverless + Node.js Local)
+### Arquitectura Híbrida (Vercel Serverless + Node.js Local)
 * **Compatibilidad Nativa con Vercel:** Diseñado para desplegarse en la red Edge de Vercel utilizando funciones serverless (`/api/index.js`), con `vercel.json` preconfigurado.
 * **Manejo de Almacenamiento Resiliente:** En producción serverless utiliza `/tmp/esquina-data/` y caché en memoria; en entornos locales utiliza almacenamiento atómico en disco (`data/orders.json`).
 * **Cero Dependencias Externas:** 100% código nativo Node.js sin frameworks pesados, garantizando máxima velocidad, bajo consumo de memoria y respuesta instantánea.
 
 ---
 
-## 📡 Especificación de la API REST
+## Especificación de la API REST
 
 | Método | Endpoint | Descripción | Autenticación |
 | :--- | :--- | :--- | :--- |
@@ -51,7 +51,7 @@ Plataforma web full-stack para restaurantes de comida rápida y locales de pollo
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
 La-Esquina/
@@ -70,7 +70,7 @@ La-Esquina/
 
 ---
 
-## 🚀 Despliegue en Producción (Vercel)
+## Despliegue en Producción (Vercel)
 
 El proyecto está optimizado para desplegarse en Vercel en menos de 2 minutos:
 
@@ -84,7 +84,7 @@ El proyecto está optimizado para desplegarse en Vercel en menos de 2 minutos:
 
 ---
 
-## 💻 Ejecución en Local
+## Ejecución en Local
 
 ```bash
 # 1. Clonar el repositorio
@@ -104,6 +104,6 @@ Abre tu navegador en: `http://127.0.0.1:3007`.
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia **MIT**. Eres libre de adaptarlo o utilizarlo para tus propios proyectos.

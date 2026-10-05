@@ -62,6 +62,19 @@
       padding: 0 28px;
     }
 
+    .ui-icon {
+      width: 1.15em;
+      height: 1.15em;
+      display: inline-block;
+      vertical-align: -0.18em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
     /* Top banner */
     .top-banner {
       background: var(--ink);
@@ -1071,17 +1084,24 @@
           <button class="button" onclick="document.querySelector('#menu').scrollIntoView({behavior:'smooth'})">Ver la carta</button>
           <button class="button secondary" onclick="openStatus()">Consultar mi pedido</button>
         </div>
-        <div class="hero-note">✓ Recojo en tienda sin cargo &nbsp;·&nbsp; ✓ Delivery express: S/ 3.00</div>
+        <div class="hero-note">
+          <span style="display:inline-flex; align-items:center; gap:5px;"><svg class="ui-icon" style="color:#16a34a;" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Recojo en tienda sin cargo</span>
+          &nbsp;·&nbsp;
+          <span style="display:inline-flex; align-items:center; gap:5px;"><svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9 17h6M12 7l5 5h3l2 5H2v-5h7l3-5z"/></svg> Delivery express: S/ 3.00</span>
+        </div>
       </div>
       <div class="hero-visual" aria-label="Fotografía de pollo frito crujiente">
-        <div class="hero-visual-badge">🔥 SALIENDO CALIENTE</div>
+        <div class="hero-visual-badge" style="display:inline-flex; align-items:center; gap:6px;">
+          <svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+          SALIENDO CALIENTE
+        </div>
       </div>
     </section>
 
     <!-- Marquee Ticker -->
     <div class="ticker">
       <div class="ticker-inner">
-        POLLO CRUJIENTE &nbsp;✦&nbsp; PAPAS CALIENTES &nbsp;✦&nbsp; SALSAS ARTESANALES &nbsp;✦&nbsp; PEDIDOS SIN VUELTAS &nbsp;✦&nbsp; POLLO CRUJIENTE &nbsp;✦&nbsp; PAPAS CALIENTES &nbsp;✦&nbsp; SALSAS ARTESANALES &nbsp;✦&nbsp; PEDIDOS SIN VUELTAS &nbsp;✦&nbsp;
+        POLLO CRUJIENTE &nbsp;·&nbsp; PAPAS CALIENTES &nbsp;·&nbsp; SALSAS ARTESANALES &nbsp;·&nbsp; PEDIDOS SIN VUELTAS &nbsp;·&nbsp; POLLO CRUJIENTE &nbsp;·&nbsp; PAPAS CALIENTES &nbsp;·&nbsp; SALSAS ARTESANALES &nbsp;·&nbsp; PEDIDOS SIN VUELTAS &nbsp;·&nbsp;
       </div>
     </div>
 
@@ -1184,8 +1204,9 @@
             la <em>esquina</em>
           </a>
           <p>Pollo crujiente de barrio, papas rústicas calientes y salsas preparadas en casa cada día. Despacho rápido para recojo y delivery.</p>
-          <div class="footer-badge">
-            🛵 Delivery Express & Recojo en Tienda
+          <div class="footer-badge" style="display:inline-flex; align-items:center; gap:8px;">
+            <svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9 17h6M12 7l5 5h3l2 5H2v-5h7l3-5z"/></svg>
+            Delivery Express & Recojo en Tienda
           </div>
         </div>
 
@@ -1213,9 +1234,9 @@
         <div class="footer-col">
           <h4>Atención & Contacto</h4>
           <ul>
-            <li><span style="font-size:13px; font-weight:700;">📍 Av. Miraflores 450, Lima</span></li>
-            <li><span style="font-size:13px; color:var(--muted);">⏰ Lun - Dom: 12:00pm - 11:00pm</span></li>
-            <li><a href="https://wa.me/51987654321" target="_blank" rel="noopener">📲 WhatsApp: 987 654 321</a></li>
+            <li><span style="font-size:13px; font-weight:700; display:inline-flex; align-items:center; gap:6px;"><svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Av. Miraflores 450, Lima</span></li>
+            <li><span style="font-size:13px; color:var(--muted); display:inline-flex; align-items:center; gap:6px;"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Lun - Dom: 12:00pm - 11:00pm</span></li>
+            <li><a href="https://wa.me/51987654321" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px;"><svg class="ui-icon" style="color:#25d366;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg> WhatsApp: 987 654 321</a></li>
             <li><span style="font-size:12px; color:var(--muted); font-family:'DM Mono';">Pagos: Efectivo / Yape / Plin</span></li>
           </ul>
         </div>
@@ -1384,7 +1405,7 @@
       }
       saveCart();
       const item = menu.find(p => p.id === id);
-      toast(`✓ ${item ? item.name : 'Producto'} añadido`);
+      toast(`${item ? item.name : 'Producto'} añadido a la canasta`);
     }
 
     function changeQty(id, delta) {
@@ -1477,11 +1498,13 @@
         <h2>Confirma<br>tu pedido.</h2>
 
         <div class="fulfill">
-          <button type="button" class="${fulfillment === 'pickup' ? 'active' : ''}" onclick="setFulfillment('pickup')">
-            🏠 Recojo en tienda (S/ 0)
+          <button type="button" class="${fulfillment === 'pickup' ? 'active' : ''}" onclick="setFulfillment('pickup')" style="display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+            <svg class="ui-icon" viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5M3 9a3 3 0 006 0 3 3 0 006 0 3 3 0 006 0M4 14v6a2 2 0 002 2h12a2 2 0 002-2v-6"/></svg>
+            Recojo en tienda (S/ 0)
           </button>
-          <button type="button" class="${fulfillment === 'delivery' ? 'active' : ''}" onclick="setFulfillment('delivery')">
-            🛵 Delivery en la zona (S/ 3)
+          <button type="button" class="${fulfillment === 'delivery' ? 'active' : ''}" onclick="setFulfillment('delivery')" style="display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+            <svg class="ui-icon" viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9 17h6M12 7l5 5h3l2 5H2v-5h7l3-5z"/></svg>
+            Delivery en la zona (S/ 3)
           </button>
         </div>
 
@@ -1520,11 +1543,15 @@
               <span>Total a pagar</span>
               <span>${money(total)}</span>
             </div>
-            <small>💰 Pago en efectivo o Yape/Plin al ${fulfillment === 'delivery' ? 'recibir tu pedido' : 'recoger en el local'}.</small>
+            <small style="display:flex; align-items:center; gap:6px;">
+              <svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
+              Pago en efectivo o Yape/Plin al ${fulfillment === 'delivery' ? 'recibir tu pedido' : 'recoger en el local'}.
+            </small>
           </div>
 
-          <div style="font-size:12px; color:var(--muted); margin: 8px 0 16px; line-height: 1.45;">
-            🔒 Al confirmar declaras aceptar nuestros <a href="#" onclick="openTerms(); return false;" style="color:var(--coral); text-decoration:underline; font-weight:700;">Términos del Servicio</a> y la <a href="#" onclick="openPrivacyPolicy(); return false;" style="color:var(--coral); text-decoration:underline; font-weight:700;">Política de Privacidad</a> (Ley N° 29733).
+          <div style="font-size:12px; color:var(--muted); margin: 8px 0 16px; line-height: 1.45; display:flex; align-items:flex-start; gap:6px;">
+            <svg class="ui-icon" style="margin-top:2px; flex-shrink:0;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <span>Al confirmar declaras aceptar nuestros <a href="#" onclick="openTerms(); return false;" style="color:var(--coral); text-decoration:underline; font-weight:700;">Términos del Servicio</a> y la <a href="#" onclick="openPrivacyPolicy(); return false;" style="color:var(--coral); text-decoration:underline; font-weight:700;">Política de Privacidad</a> (Ley N° 29733).</span>
           </div>
 
           <div class="error" id="formError"></div>
@@ -1615,7 +1642,10 @@
 
       $('#modalBody').innerHTML = `
         <button class="close" style="position: absolute; top: 18px; right: 20px;" onclick="closeModal()" aria-label="Cerrar">×</button>
-        <div class="eyebrow" style="color:#16a34a">✓ Pedido registrado con éxito</div>
+        <div class="eyebrow" style="color:#16a34a; display:inline-flex; align-items:center; gap:6px;">
+          <svg class="ui-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Pedido registrado con éxito
+        </div>
         <h2>¡Tu comida ya<br>está en marcha!</h2>
         <p style="color:var(--muted); margin: 6px 0 16px;">Guarda este código para revisar el avance de tu pedido:</p>
         
@@ -1635,14 +1665,17 @@
         </div>
 
         <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
-          <a href="${waUrl}" target="_blank" rel="noopener" class="button whatsapp">
-            📲 Enviar confirmación a WhatsApp ↗
+          <a href="${waUrl}" target="_blank" rel="noopener" class="button whatsapp" style="display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+            <svg class="ui-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            Enviar confirmación a WhatsApp ↗
           </a>
-          <button class="button" onclick="closeModal(); openStatus('${createdOrder.id}')">
-            🔍 Consultar estado en vivo
+          <button class="button" onclick="closeModal(); openStatus('${createdOrder.id}')" style="display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+            <svg class="ui-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Consultar estado en vivo
           </button>
-          <button class="button secondary" onclick="copyTrackingLink('${createdOrder.id}')">
-            📋 Copiar enlace de seguimiento
+          <button class="button secondary" onclick="copyTrackingLink('${createdOrder.id}')" style="display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+            <svg class="ui-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copiar enlace de seguimiento
           </button>
         </div>
       `;
@@ -1652,7 +1685,7 @@
       const url = `${window.location.origin}${window.location.pathname}?track=${encodeURIComponent(id)}`;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(() => {
-          toast('✓ Enlace de seguimiento copiado al portapapeles');
+          toast('Enlace de seguimiento copiado al portapapeles');
         }).catch(() => {
           prompt('Copia este enlace de seguimiento:', url);
         });
@@ -1731,7 +1764,15 @@
         <div class="status-tracker" style="margin-top:20px;">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
             <div>
-              <span class="eyebrow">${order.fulfillment === 'delivery' ? '🛵 Delivery Express' : '🏠 Recojo en Tienda'}</span>
+              <span class="eyebrow" style="display:inline-flex; align-items:center; gap:6px;">
+                ${order.fulfillment === 'delivery' ? `
+                  <svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9 17h6M12 7l5 5h3l2 5H2v-5h7l3-5z"/></svg>
+                  Delivery Express
+                ` : `
+                  <svg class="ui-icon" viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5M3 9a3 3 0 006 0 3 3 0 006 0 3 3 0 006 0M4 14v6a2 2 0 002 2h12a2 2 0 002-2v-6"/></svg>
+                  Recojo en Tienda
+                `}
+              </span>
               <h3 style="margin:4px 0 0; text-transform:uppercase;">${order.status}</h3>
             </div>
             <div style="text-align:right">
@@ -1747,8 +1788,9 @@
             <div class="tracker-step ${currentIndex >= 3 ? 'done' : ''}">4. Entregado</div>
           </div>
 
-          <p style="margin: 12px 0 8px; font-size: 13px; color: #2b2723; background: #fff; padding: 10px 12px; border: 1.5px dashed var(--ink);">
-            💡 <em>${statusLabels[order.status.toLowerCase()] || 'Procesando pedido.'}</em>
+          <p style="margin: 12px 0 8px; font-size: 13px; color: #2b2723; background: #fff; padding: 10px 12px; border: 1.5px dashed var(--ink); display:flex; align-items:center; gap:8px;">
+            <svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <em>${statusLabels[order.status.toLowerCase()] || 'Procesando pedido.'}</em>
           </p>
           
           <div style="margin-top:12px; font-size:13px; color:var(--muted); line-height: 1.5;">
@@ -1760,11 +1802,13 @@
             <button type="button" class="button secondary" style="flex:1;" onclick="lookupStatus()">
               ↻ Actualizar estado
             </button>
-            <button type="button" class="button secondary" style="flex:1;" onclick="copyTrackingLink('${order.id}')">
-              📋 Copiar enlace
+            <button type="button" class="button secondary" style="flex:1; display:inline-flex; align-items:center; justify-content:center; gap:6px;" onclick="copyTrackingLink('${order.id}')">
+              <svg class="ui-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copiar enlace
             </button>
-            <a href="${waOrderHelp}" target="_blank" rel="noopener" class="button whatsapp" style="width:100%;">
-              📲 Consultar pedido por WhatsApp ↗
+            <a href="${waOrderHelp}" target="_blank" rel="noopener" class="button whatsapp" style="width:100%; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+              <svg class="ui-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+              Consultar pedido por WhatsApp ↗
             </a>
           </div>
         </div>
@@ -1816,7 +1860,7 @@
           </div>
         </div>
 
-        <button class="button" style="width:100%" onclick="closeModal()">Entendido y Conforme ✓</button>
+        <button class="button" style="width:100%" onclick="closeModal()">Entendido y Conforme</button>
       `;
       $('#modal').classList.add('show');
     }
@@ -1955,7 +1999,10 @@
 
       $('#modalBody').innerHTML = `
         <button class="close" style="position: absolute; top: 18px; right: 20px;" onclick="closeModal()" aria-label="Cerrar">×</button>
-        <div class="eyebrow" style="color:#16a34a">✓ Constancia Registrada</div>
+        <div class="eyebrow" style="color:#16a34a; display:inline-flex; align-items:center; gap:6px;">
+          <svg class="ui-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Constancia Registrada
+        </div>
         <h2>Hoja de Reclamación Generada</h2>
         <p style="color:var(--muted); margin: 6px 0 16px;">Hemos archivado tu expediente conforme a la Ley N° 29571. Tu código de trámite es:</p>
 
@@ -1966,8 +2013,9 @@
         </div>
 
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="${waUrl}" target="_blank" rel="noopener" class="button whatsapp">
-            📲 Enviar constancia a WhatsApp de Atención al Cliente ↗
+          <a href="${waUrl}" target="_blank" rel="noopener" class="button whatsapp" style="display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+            <svg class="ui-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            Enviar constancia a WhatsApp de Atención al Cliente ↗
           </a>
           <button class="button secondary" onclick="closeModal()">
             Cerrar ventana
@@ -1985,15 +2033,24 @@
 
         <div class="legal-text-box">
           <div>
-            <h3>🔒 Cero Almacenamiento Bancario</h3>
+            <h3 style="display:flex; align-items:center; gap:8px;">
+              <svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              Cero Almacenamiento Bancario
+            </h3>
             <p>En La Esquina nunca te solicitaremos contraseñas bancarias, números de tarjeta ni códigos CVV en nuestro sitio web. Al abonar contraentrega en efectivo o con QR Yape/Plin, no existe riesgo de filtraciones bancarias.</p>
           </div>
           <div>
-            <h3>🛡️ Conexión Cifrada SSL / HTTPS</h3>
+            <h3 style="display:flex; align-items:center; gap:8px;">
+              <svg class="ui-icon" style="color:#16a34a;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Conexión Cifrada SSL / HTTPS
+            </h3>
             <p>Todas las comunicaciones entre tu navegador y nuestro servidor viajan cifradas con los protocolos criptográficos más actuales a través de la infraestructura global de Vercel.</p>
           </div>
           <div>
-            <h3>🧹 Arquitectura Zero-Leak</h3>
+            <h3 style="display:flex; align-items:center; gap:8px;">
+              <svg class="ui-icon" style="color:#3b82f6;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Arquitectura Zero-Leak
+            </h3>
             <p>Tus datos personales se limitan al procesamiento de la orden solicitada y no se comparten con terceros para publicidad ni perfilado comercial.</p>
           </div>
         </div>
@@ -2091,7 +2148,7 @@
           <div>
             <h4>${o.id} · <span style="font-weight:normal; font-size:14px; color:var(--muted);">${new Date(o.createdAt).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</span></h4>
             <p><strong>Cliente:</strong> ${o.customer?.name || 'Anónimo'} &nbsp;·&nbsp; <strong>Tel:</strong> <a href="tel:${o.customer?.phone}">${o.customer?.phone || 'Sin teléfono'}</a></p>
-            <p><strong>Modalidad:</strong> ${o.fulfillment === 'delivery' ? '🛵 Delivery: ' + (o.customer?.address || 'Sin dirección') : '🏠 Recojo en tienda'}</p>
+            <p><strong>Modalidad:</strong> ${o.fulfillment === 'delivery' ? '<span style="display:inline-flex; align-items:center; gap:5px;"><svg class="ui-icon" style="color:var(--coral);" viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M9 17h6M12 7l5 5h3l2 5H2v-5h7l3-5z"/></svg> Delivery: ' + (o.customer?.address || 'Sin dirección') + '</span>' : '<span style="display:inline-flex; align-items:center; gap:5px;"><svg class="ui-icon" viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5M3 9a3 3 0 006 0 3 3 0 006 0 3 3 0 006 0M4 14v6a2 2 0 002 2h12a2 2 0 002-2v-6"/></svg> Recojo en tienda</span>'}</p>
             <p><strong>Productos:</strong> ${o.items.map(i => `${i.quantity}× ${i.name}`).join(', ')}</p>
             ${o.customer?.notes ? `<p><strong>Nota:</strong> <em>${o.customer.notes}</em></p>` : ''}
             <p><strong>Total:</strong> <span style="font-family:'DM Mono'; font-weight:700; color:var(--coral); font-size:15px;">${money(o.total)}</span></p>
@@ -2120,7 +2177,7 @@
         });
 
         if (res.ok) {
-          toast('✓ Estado actualizado a ' + newStatus.toUpperCase());
+          toast('Estado actualizado a ' + newStatus.toUpperCase());
         }
       } catch (e) {
         // Update local history

@@ -55,5 +55,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`🍗 La Esquina lista en http://127.0.0.1:${PORT}`);
+  console.log(`[INFO] La Esquina lista en http://127.0.0.1:${PORT}`);
 });

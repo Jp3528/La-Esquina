@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Esquina — Pollo Crujiente & Pedidos en Línea</title>
+  <meta name="description" content="Pollo crujiente de barrio, papas rústicas calientes y salsas artesanales. Haz tu pedido en línea para recojo o delivery con seguimiento en tiempo real.">
+  <meta name="theme-color" content="#f35332">
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="La Esquina — Pollo Crujiente & Pedidos en Línea">
+  <meta property="og:description" content="El antojo ya tiene sistema. Arma tu canasta, confirma tu pedido y síguelo en tiempo real.">
+  <meta property="og:image" content="assets/pollo-hero.png">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f35332'/%3E%3Cpath d='M8 20 Q16 4 24 20 Q20 28 8 20 Z' fill='%23ffc928' stroke='%23181716' stroke-width='2'/%3E%3Ccircle cx='13' cy='14' r='2' fill='%23181716'/%3E%3C/svg%3E">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #181716;
+      --paper: #fff9ee;
+      --paper-card: #fffdf7;
+      --coral: #f35332;
+      --coral-dark: #d63d1e;
+      --yellow: #ffc928;
+      --lime: #dce873;
+      --teal: #d7eff0;
+      --muted: #6d675e;
+      --border: #22201d;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 28px;
+    }
+
+    /* Top banner */
+    .top-banner {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-banner span.dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(0.85); }
+    }
+
+    /* Navigation */
+    .nav {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--ink);
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: inherit;
+      text-decoration: none;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 28px;
+      letter-spacing: -.07em;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand em {
+      color: var(--coral);
+      font-style: normal;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a:not(.brand) {
+      color: inherit;
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .nav a:not(.brand):hover {
+      color: var(--coral);
+    }
+
+    /* Buttons */
+    .button {
+      border: 2px solid var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 12px 18px;
+      background: var(--coral);
+      color: #fff;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform .12s, box-shadow .12s, background-color .15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--coral-dark);
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .button:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .button.secondary:hover {
+      background: var(--yellow);
+    }
+
+    .button.whatsapp {
+      background: #25d366;
+      color: #fff;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .button.whatsapp:hover {
+      background: #20ba59;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 48px;
+      padding: 68px 0 84px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--coral);
+      font-weight: 700;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Archivo Black', sans-serif;
+      letter-spacing: -.065em;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(48px, 6.8vw, 92px);
+      line-height: .86;
+      margin: 18px 0 22px;
+    }
+
+    h1 span {
+      color: var(--coral);
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 520px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 18px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .hero-visual {
+      min-height: 460px;
+      border: 2px solid var(--ink);
+      background: var(--yellow) url('assets/pollo-hero.png') center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 12px 14px 0 var(--ink);
+      clip-path: polygon(5% 2%, 97% 0, 100% 93%, 8% 100%, 0 85%);
+    }
+
+    .hero-visual-badge {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: var(--paper);
+      border: 1.5px solid var(--ink);
+      padding: 8px 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    /* Ticker */
+    .ticker {
+      overflow: hidden;
+      white-space: nowrap;
+      background: var(--coral);
+      border-block: 2px solid var(--ink);
+      color: #fff;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 21px;
+      padding: 14px 0;
+      user-select: none;
+    }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: tickerAnim 22s linear infinite;
+    }
+
+    @keyframes tickerAnim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Catalog Section */
+    .catalog {
+      padding: 88px 0;
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-bottom: 34px;
+    }
+
+    .head h2 {
+      font-size: clamp(40px, 5.2vw, 64px);
+      line-height: .9;
+      margin: 10px 0 0;
+    }
+
+    .head p {
+      max-width: 360px;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .tools {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 240px;
+      background: var(--paper-card);
+      border: 2px solid var(--ink);
+      padding: 13px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color .15s;
+    }
+
+    .search:focus {
+      border-color: var(--coral);
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter {
+      border: 2px solid var(--ink);
+      background: transparent;
+      padding: 10px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      text-transform: capitalize;
+      transition: background .15s, color .15s;
+    }
+
+    .filter.active, .filter:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    /* Product Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      border: 2px solid var(--ink);
+      background: var(--paper-card);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 5px 5px 0 var(--ink);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .product:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+
+    .product:nth-child(3n+2) { background: #fbfde5; }
+    .product:nth-child(3n) { background: #f1f9f9; }
+
+    .photo {
+      height: 205px;
+      overflow: hidden;
+      border-bottom: 2px solid var(--ink);
+      position: relative;
+      background: var(--yellow);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s ease;
+    }
+
+    .product:hover .photo img {
+      transform: scale(1.05);
+    }
+
+    .tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--ink);
+      color: #fff;
+      padding: 4px 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .08em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .product-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 18px;
+    }
+
+    .product h3 {
+      font-size: 21px;
+      line-height: .95;
+      margin: 0 0 8px;
+    }
+
+    .product p {
+      font-size: 13.5px;
+      line-height: 1.4;
+      color: #555048;
+      margin: 0;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .price {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 22px;
+    }
+
+    .add {
+      border: 2px solid var(--ink);
+      background: var(--yellow);
+      color: var(--ink);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .12s, background .15s;
+    }
+
+    .add:hover {
+      background: var(--coral);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* How it works */
+    .how {
+      padding: 85px 0;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .how h2 {
+      font-size: clamp(40px, 4.8vw, 62px);
+      line-height: .9;
+      margin: 12px 0;
+    }
+
+    .step {
+      border-top: 1px solid #4a453f;
+      padding: 20px 0;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 14px;
+    }
+
+    .step b {
+      color: var(--yellow);
+      font-family: 'DM Mono', monospace;
+      font-size: 20px;
+    }
+
+    .step h3 {
+      font-size: 20px;
+      margin: 0 0 6px;
+    }
+
+    .step p {
+      color: #d1cac0;
+      margin: 0;
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 30px 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      border-top: 1px solid #e2dacd;
+    }
+
+    .footer a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* Cart Drawer */
+    .drawer {
+      position: fixed;
+      z-index: 100;
+      right: 0;
+      top: 0;
+      width: min(440px, 100%);
+      height: 100dvh;
+      background: var(--paper);
+      border-left: 2px solid var(--ink);
+      transform: translateX(105%);
+      transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--ink);
+      padding: 22px;
+      background: var(--paper-card);
+    }
+
+    .drawer h2 {
+      font-size: 26px;
+    }
+
+    .close {
+      background: none;
+      border: 0;
+      font-size: 32px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+    }
+
+    .close:hover {
+      color: var(--coral);
+    }
+
+    .cart-lines {
+      overflow-y: auto;
+      flex: 1;
+      padding: 10px 22px;
+    }
+
+    .cart-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      border-bottom: 1px solid #e0d8cb;
+      padding: 16px 0;
+      align-items: center;
+    }
+
+    .cart-line strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .cart-line span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .qty button {
+      border: 1.5px solid var(--ink);
+      background: #fff;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty button:hover {
+      background: var(--yellow);
+    }
+
+    .remove {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      background: none;
+      border: 0;
+      color: var(--coral);
+      text-decoration: underline;
+      cursor: pointer;
+      display: block;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .summary {
+      padding: 18px 22px;
+      border-top: 2px solid var(--ink);
+      background: var(--paper-card);
+    }
+
+    .sum-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 14px;
+    }
+
+    .sum-line.total {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 22px;
+      border-top: 1px dashed var(--ink);
+      margin-top: 8px;
+      padding-top: 12px;
+    }
+
+    .checkout-btn-box {
+      padding: 0 22px 22px;
+      background: var(--paper-card);
+    }
+
+    .checkout-btn-box .button {
+      width: 100%;
+    }
+
+    .empty {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(24, 23, 22, 0.7);
+      backdrop-filter: blur(4px);
+      display: none;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .modal.show {
+      display: grid;
+    }
+
+    .modal-card {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--coral);
+      width: min(620px, 100%);
+      max-height: 90dvh;
+      overflow-y: auto;
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal-card h2 {
+      font-size: 32px;
+      line-height: .95;
+      margin: 0 0 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field input, .field textarea {
+      border: 2px solid var(--ink);
+      padding: 12px;
+      background: var(--paper-card);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .field input:focus, .field textarea:focus {
+      border-color: var(--coral);
+    }
+
+    .fulfill {
+      display: flex;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .fulfill button {
+      flex: 1;
+      border: 2px solid var(--ink);
+      background: transparent;
+      padding: 12px;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+
+    .fulfill button.active {
+      background: var(--yellow);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .checkout-summary {
+      background: var(--yellow);
+      padding: 14px;
+      margin: 18px 0;
+      border: 2px solid var(--ink);
+    }
+
+    .checkout-summary small {
+      display: block;
+      margin-top: 8px;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .error {
+      color: #ba2814;
+      font-size: 13px;
+      font-weight: 700;
+      min-height: 20px;
+      margin: 8px 0;
+    }
+
+    .order-id {
+      font-family: 'DM Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      background: var(--yellow);
+      display: inline-block;
+      padding: 8px 14px;
+      border: 2px solid var(--ink);
+      margin: 10px 0 16px;
+    }
+
+    .status-tracker {
+      border: 2px solid var(--ink);
+      padding: 16px;
+      margin: 20px 0;
+      background: var(--paper-card);
+    }
+
+    .tracker-steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .tracker-step {
+      flex: 1;
+      text-align: center;
+      padding: 8px 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      border: 1px solid var(--ink);
+      background: #f0ebe1;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .tracker-step.current {
+      background: var(--coral);
+      color: #fff;
+    }
+
+    .tracker-step.done {
+      background: var(--lime);
+      color: var(--ink);
+    }
+
+    /* Admin Section */
+    .admin {
+      display: none;
+      padding: 60px 0;
+    }
+
+    .admin.show {
+      display: block;
+    }
+
+    .admin-panel {
+      border: 2px solid var(--ink);
+      padding: 24px;
+      background: var(--paper-card);
+      box-shadow: 6px 6px 0 var(--ink);
+      margin-top: 20px;
+    }
+
+    .admin-login {
+      max-width: 420px;
+    }
+
+    .orders-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .admin-order {
+      border: 2px solid var(--ink);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      background: #fff;
+    }
+
+    .admin-order h4 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .admin-order p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .admin-order select {
+      padding: 10px;
+      border: 2px solid var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      background: var(--yellow);
+      cursor: pointer;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      z-index: 300;
+      bottom: 24px;
+      left: 50%;
+      transform: translate(-50%, 40px);
+      opacity: 0;
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1.5px solid var(--paper);
+      box-shadow: 4px 4px 0 var(--coral);
+      transition: transform .2s ease, opacity .2s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media(max-width: 780px) {
+      .wrap { padding: 0 18px; }
+      .nav { height: 72px; }
+      .navlinks { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 44px 0 56px; gap: 36px; }
+      .hero-visual { min-height: 320px; box-shadow: 8px 10px 0 var(--ink); }
+      .head { display: block; }
+      .head p { margin-top: 14px; }
+      .grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer { flex-direction: column; text-align: center; gap: 12px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .admin-order { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top notification bar -->
+  <div class="top-banner">
+    <span class="dot"></span>
+    <span>Pedidos activos en tiempo real · Recojo en tienda y delivery</span>
+  </div>
+
+  <!-- Header -->
+  <header class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#inicio">
+        <img src="assets/la-esquina-mark.png" alt="Logo La Esquina">
+        la <em>esquina</em>
+      </a>
+      <div class="navlinks">
+        <a href="#menu">Menú</a>
+        <a href="#como">Cómo Funciona</a>
+        <a href="#admin" onclick="showAdmin()">Recepción</a>
+      </div>
+      <button class="button" onclick="openCart()">
+        <span>Canasta</span>
+        <b id="cartCount">0</b> · <span id="cartMini">S/ 0.00</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Store Main View -->
+  <main id="store">
+    <!-- Hero Section -->
+    <section class="wrap hero" id="inicio">
+      <div>
+        <div class="eyebrow">Pollo crujiente · sabor de barrio</div>
+        <h1>El antojo <span>ya tiene sistema.</span></h1>
+        <p>Pollo crocante dorado al punto, papas rústicas calientes y salsas preparadas en casa cada día. Elige lo tuyo y sigue el pedido desde el recojo hasta tu puerta.</p>
+        <div class="hero-actions">
+          <button class="button" onclick="document.querySelector('#menu').scrollIntoView({behavior:'smooth'})">Ver la carta</button>
+          <button class="button secondary" onclick="openStatus()">Consultar mi pedido</button>
+        </div>
+        <div class="hero-note">✓ Recojo en tienda sin cargo &nbsp;·&nbsp; ✓ Delivery express: S/ 3.00</div>
+      </div>
+      <div class="hero-visual" aria-label="Fotografía de pollo frito crujiente">
+        <div class="hero-visual-badge">🔥 SALIENDO CALIENTE</div>
+      </div>
+    </section>
+
+    <!-- Marquee Ticker -->
+    <div class="ticker">
+      <div class="ticker-inner">
+        POLLO CRUJIENTE &nbsp;✦&nbsp; PAPAS CALIENTES &nbsp;✦&nbsp; SALSAS ARTESANALES &nbsp;✦&nbsp; PEDIDOS SIN VUELTAS &nbsp;✦&nbsp; POLLO CRUJIENTE &nbsp;✦&nbsp; PAPAS CALIENTES &nbsp;✦&nbsp; SALSAS ARTESANALES &nbsp;✦&nbsp; PEDIDOS SIN VUELTAS &nbsp;✦&nbsp;
+      </div>
+    </div>
+
+    <!-- Catalog Section -->
+    <section class="wrap catalog" id="menu">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Lo que sale de la cocina</div>
+          <h2>Elige tu<br>momento.</h2>
+        </div>
+        <p>Porciones honestas, ingredientes frescos y mucho crunch. Precios en soles con cálculo validado por el servidor.</p>
+      </div>
+
+      <div class="tools">
+        <input class="search" id="search" placeholder="Buscar producto o antojo..." oninput="renderMenu()">
+        <div class="filters" id="filters"></div>
+      </div>
+
+      <div class="grid" id="menuGrid"></div>
+    </section>
+
+    <!-- How it works Section -->
+    <section class="how" id="como">
+      <div class="wrap how-grid">
+        <div>
+          <div class="eyebrow" style="color:var(--yellow)">Flujo sin vueltas</div>
+          <h2>Pedido claro.<br>Seguimiento real.</h2>
+          <p style="color: #cdc6b8; margin-top: 14px; max-width: 440px;">Diseñado para que pedir tu comida sea tan rápido como comerla. Sin registros obligatorios ni esperas a ciegas.</p>
+        </div>
+        <div>
+          <div class="step">
+            <b>01</b>
+            <div>
+              <h3>Arma tu canasta</h3>
+              <p>Filtra por combos, sánguches, alitas o bebidas. Ajusta cantidades y confirma tu subtotal.</p>
+            </div>
+          </div>
+          <div class="step">
+            <b>02</b>
+            <div>
+              <h3>Elige modalidad</h3>
+              <p>Recojo en tienda sin cargo o delivery con tarifa transparente fijada desde el inicio.</p>
+            </div>
+          </div>
+          <div class="step">
+            <b>03</b>
+            <div>
+              <h3>Sigue tu comida</h3>
+              <p>Recibe tu código único y confirma el estado en vivo o coordínalo por WhatsApp en 1 clic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Admin Panel View -->
+  <section class="wrap admin" id="admin">
+    <div class="eyebrow">Acceso de administración</div>
+    <h1 style="font-size:clamp(38px,5vw,70px)">Recepción de pedidos.</h1>
+    
+    <div class="admin-panel admin-login" id="loginPanel">
+      <p style="margin: 0 0 16px; color: var(--muted); font-size: 14px;">Ingresa las credenciales del local para gestionar pedidos:</p>
+      <label class="field">
+        Usuario
+        <input id="adminUser" value="admin">
+      </label>
+      <label class="field" style="margin-top:14px">
+        Contraseña
+        <input id="adminPass" type="password" value="esquina-demo-2026">
+      </label>
+      <div class="error" id="loginError"></div>
+      <button class="button" onclick="loginAdmin()">Ingresar a recepción</button>
+      <p style="margin: 12px 0 0; font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace;">Demo credentials: admin / esquina-demo-2026</p>
+    </div>
+
+    <div class="admin-panel" id="ordersPanel" hidden>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px">
+        <div>
+          <h2 style="margin:0">Panel de Cocina & Pedidos</h2>
+          <small style="color:var(--muted)">Actualiza el estado de los pedidos en tiempo real</small>
+        </div>
+        <div style="display:flex; gap:10px">
+          <button class="button secondary" onclick="loadOrders()">↻ Actualizar</button>
+          <button class="button secondary" onclick="logoutAdmin()">Cerrar sesión</button>
+          <button class="button" onclick="hideAdmin()">Ver tienda ↗</button>
+        </div>
+      </div>
+      <div class="orders-grid" id="ordersList"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="wrap footer">
+    <div>La Esquina · Pollo Crujiente de Barrio</div>
+    <div>
+      <a href="#inicio" onclick="hideAdmin()">Inicio</a> &nbsp;·&nbsp;
+      <a href="#menu" onclick="hideAdmin()">Menú</a> &nbsp;·&nbsp;
+      <a href="#como" onclick="hideAdmin()">Cómo funciona</a> &nbsp;·&nbsp;
+      <a href="#admin" onclick="showAdmin()">Panel Recepción</a>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="drawer" aria-label="Canasta de compra">
+    <div class="drawer-head">
+      <h2>Tu canasta</h2>
+      <button class="close" onclick="closeCart()" aria-label="Cerrar canasta">×</button>
+    </div>
+    <div class="cart-lines" id="cartLines"></div>
+    <div class="summary">
+      <div class="sum-line">
+        <span>Productos</span>
+        <strong id="subtotal">S/ 0.00</strong>
+      </div>
+      <div class="sum-line">
+        <span>Delivery</span>
+        <span>Se calcula al confirmar</span>
+      </div>
+      <div class="sum-line total">
+        <span>Estimado</span>
+        <span id="estimated">S/ 0.00</span>
+      </div>
+    </div>
+    <div class="checkout-btn-box">
+      <button class="button" onclick="openCheckout()">Continuar con el pedido →</button>
+    </div>
+  </aside>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-card" id="modalBody"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Client JavaScript -->
+  <script>
+    // Fallback menu in case API is offline / static deployment
+    const DEFAULT_MENU = [
+      { id: 'clasico', name: 'El Clásico', category: 'combos', price: 15, tag: 'MÁS VENDIDO', description: 'Dos piezas de pollo crujiente, papas fritas rústicas y gaseosa personal.', image: 'assets/pollo-hero.png' },
+      { id: 'duo', name: 'Crunch para Dos', category: 'combos', price: 28, tag: 'FAVORITO', description: 'Cuatro piezas de pollo, papas grandes y dos salsas artesanales de la casa.', image: 'assets/bucket-editorial.png' },
+      { id: 'cubeta', name: 'La Cubeta Barrio', category: 'combos', price: 39, tag: 'COMPARTIR', description: 'Seis piezas de pollo crujiente, porción doble de papas y tres salsas a elección.', image: 'assets/bucket-editorial.png' },
+      { id: 'familiar', name: 'Cubetón Familiar', category: 'combos', price: 49, tag: 'FAMILIAR', description: 'Ocho piezas de pollo, dos papas grandes, ensalada coleslaw y gaseosa de 1.5L.', image: 'assets/bucket-editorial.png' },
+      { id: 'sanguche-crispy', name: 'Sánguche Crispy Deluxe', category: 'sandwiches', price: 18, tag: 'NUEVO', description: 'Pechuga extra crocante en pan brioche, queso cheddar, pepinillos y salsa tártara.', image: 'assets/pollo-hero.png' },
+      { id: 'alitas-bbq', name: 'Alitas BBQ Ahumadas (6 unid)', category: 'alitas', price: 20, tag: 'CRUJIENTES', description: 'Alitas bañadas en barbacoa artesanal con toque de miel y papas fritas.', image: 'assets/pollo-hero.png' },
+      { id: 'tenders', name: 'Tenders Extra Crunch (5 unid)', category: 'alitas', price: 19, tag: 'SIN HUESO', description: 'Tiras de pechuga empanizadas con panko y salsa honey mustard de la casa.', image: 'assets/pollo-hero.png' },
+      { id: 'papas-rusticas', name: 'Papas Rústicas de la Casa', category: 'guarniciones', price: 8, tag: 'GUARNICIÓN', description: 'Papas amarillas crocantes con sal marina, orégano y crema de ají pollero.', image: 'assets/pollo-hero.png' },
+      { id: 'coleslaw', name: 'Ensalada Coleslaw Fresca', category: 'guarniciones', price: 7, tag: 'FRESCO', description: 'Col morada, col blanca, zanahoria rallada y aderezo agridulce cremoso.', image: 'assets/bucket-editorial.png' },
+      { id: 'chicha', name: 'Chicha Morada Casera (500ml)', category: 'bebidas', price: 6, tag: 'NATURAL', description: 'Hervida a fuego lento con maíz morado, piña, manzana y canela de ceja de selva.', image: 'assets/la-esquina-mark.png' },
+      { id: 'gaseosa', name: 'Inca Kola / Coca-Cola (500ml)', category: 'bebidas', price: 5, tag: 'HELADA', description: 'Bebida helada personal a elección (indicar en notas o al recibir).', image: 'assets/la-esquina-mark.png' }
+    ];
+
+    let menu = DEFAULT_MENU;
+    let cart = JSON.parse(localStorage.getItem('esq-cart') || '[]');
+    let cat = 'todos';
+    let fulfillment = 'pickup';
+    let adminToken = sessionStorage.getItem('esq-admin') || '';
+
+    const money = n => 'S/ ' + Number(n).toFixed(2);
+    const $ = s => document.querySelector(s);
+
+    function toast(text) {
+      const el = $('#toast');
+      el.textContent = text;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2800);
+    }
+
+    function saveCart() {
+      localStorage.setItem('esq-cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    async function init() {
+      try {
+        const res = await fetch('/api/menu');
+        if (res.ok) {
+          const remoteMenu = await res.json();
+          if (Array.isArray(remoteMenu) && remoteMenu.length > 0) {
+            menu = remoteMenu;
+          }
+        }
+      } catch (err) {
+        console.warn('Usando catálogo local:', err.message);
+        menu = DEFAULT_MENU;
+      }
+
+      renderFilters();
+      renderMenu();
+      renderCart();
+
+      if (location.hash === '#admin') {
+        showAdmin();
+      }
+    }
+
+    function renderFilters() {
+      const categories = ['todos', ...new Set(menu.map(p => p.category))];
+      $('#filters').innerHTML = categories.map(c => `
+        <button class="filter ${c === cat ? 'active' : ''}" onclick="setCategory('${c}')">
+          ${c.replace('-', ' ')}
+        </button>
+      `).join('');
+    }
+
+    function setCategory(category) {
+      cat = category;
+      renderFilters();
+      renderMenu();
+    }
+
+    function renderMenu() {
+      const query = ($('#search')?.value || '').toLowerCase().trim();
+      const filtered = menu.filter(item => {
+        const matchesCat = (cat === 'todos' || item.category === cat);
+        const matchesQuery = (item.name + ' ' + item.description).toLowerCase().includes(query);
+        return matchesCat && matchesQuery;
+      });
+
+      if (!filtered.length) {
+        $('#menuGrid').innerHTML = '<p style="grid-column: 1/-1; padding: 40px; text-align: center; color: var(--muted); font-size: 16px;">No encontramos ningún producto con esa búsqueda. ¡Prueba buscando "pollo", "alitas" o "papas"!</p>';
+        return;
+      }
+
+      $('#menuGrid').innerHTML = filtered.map(item => `
+        <article class="product">
+          <div class="photo">
+            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <span class="tag">${item.tag || item.category}</span>
+          </div>
+          <div class="product-body">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <div class="product-bottom">
+              <span class="price">${money(item.price)}</span>
+              <button class="add" onclick="addToCart('${item.id}')" aria-label="Agregar ${item.name}">+</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function addToCart(id) {
+      const existing = cart.find(x => x.id === id);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ id, quantity: 1 });
+      }
+      saveCart();
+      const item = menu.find(p => p.id === id);
+      toast(`✓ ${item ? item.name : 'Producto'} añadido`);
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(x => x.id === id);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(x => x.id !== id);
+      }
+      saveCart();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(x => x.id !== id);
+      saveCart();
+    }
+
+    function getTotals() {
+      const subtotal = cart.reduce((sum, item) => {
+        const product = menu.find(p => p.id === item.id);
+        return sum + (product ? product.price * item.quantity : 0);
+      }, 0);
+      const deliveryFee = fulfillment === 'delivery' ? 3 : 0;
+      return { subtotal, deliveryFee, total: subtotal + deliveryFee };
+    }
+
+    function renderCart() {
+      const { subtotal } = getTotals();
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+      $('#cartCount').textContent = count;
+      $('#cartMini').textContent = money(subtotal);
+      $('#subtotal').textContent = money(subtotal);
+      $('#estimated').textContent = money(subtotal);
+
+      if (!cart.length) {
+        $('#cartLines').innerHTML = '<p class="empty">Tu canasta está vacía.<br>¡Elige algo crujiente de la carta!</p>';
+        return;
+      }
+
+      $('#cartLines').innerHTML = cart.map(item => {
+        const product = menu.find(p => p.id === item.id) || { name: 'Producto', price: 0 };
+        return `
+          <div class="cart-line">
+            <div>
+              <strong>${product.name}</strong>
+              <span>${money(product.price)} c/u</span>
+              <div class="qty">
+                <button onclick="changeQty('${item.id}', -1)" aria-label="Disminuir">−</button>
+                <b>${item.quantity}</b>
+                <button onclick="changeQty('${item.id}', 1)" aria-label="Aumentar">+</button>
+              </div>
+            </div>
+            <div>
+              <strong style="text-align: right;">${money(product.price * item.quantity)}</strong>
+              <button class="remove" onclick="removeFromCart('${item.id}')">Eliminar</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openCart() {
+      $('#drawer').classList.add('open');
+    }
+
+    function closeCart() {
+      $('#drawer').classList.remove('open');
+    }
+
+    function closeModal() {
+      $('#modal').classList.remove('show');
+    }
+
+    function openCheckout() {
+      if (!cart.length) {
+        return toast('Agrega productos a tu canasta antes de continuar');
+      }
+      closeCart();
+      fulfillment = 'pickup';
+      renderCheckoutForm();
+    }
+
+    function renderCheckoutForm() {
+      const { subtotal, deliveryFee, total } = getTotals();
+
+      $('#modalBody').innerHTML = `
+        <button class="close" style="position: absolute; top: 18px; right: 20px;" onclick="closeModal()" aria-label="Cerrar">×</button>
+        <div class="eyebrow">Paso final</div>
+        <h2>Confirma<br>tu pedido.</h2>
+
+        <div class="fulfill">
+          <button type="button" class="${fulfillment === 'pickup' ? 'active' : ''}" onclick="setFulfillment('pickup')">
+            🏠 Recojo en tienda (S/ 0)
+          </button>
+          <button type="button" class="${fulfillment === 'delivery' ? 'active' : ''}" onclick="setFulfillment('delivery')">
+            🛵 Delivery en la zona (S/ 3)
+          </button>
+        </div>
+
+        <form id="orderForm" onsubmit="event.preventDefault(); placeOrder();">
+          <div class="form-grid">
+            <label class="field">
+              Tu nombre completo *
+              <input id="custName" required placeholder="Ej. Carlos Mendoza" autocomplete="name">
+            </label>
+            <label class="field">
+              Teléfono / WhatsApp *
+              <input id="custPhone" required placeholder="Ej. 987 654 321" type="tel" autocomplete="tel">
+            </label>
+            ${fulfillment === 'delivery' ? `
+              <label class="field full">
+                Dirección exacta de entrega *
+                <input id="custAddress" required placeholder="Ej. Av. Larco 450, dpto 302 (Miraflores)">
+              </label>
+            ` : ''}
+            <label class="field full">
+              Indicaciones adicionales (opcional)
+              <input id="custNotes" placeholder="Ej. Salsa picante extra, no tocar timbre, etc.">
+            </label>
+          </div>
+
+          <div class="checkout-summary">
+            <div class="sum-line">
+              <span>Subtotal productos</span>
+              <b>${money(subtotal)}</b>
+            </div>
+            <div class="sum-line">
+              <span>Costo de entrega</span>
+              <b>${fulfillment === 'delivery' ? money(deliveryFee) : 'Gratis'}</b>
+            </div>
+            <div class="sum-line total">
+              <span>Total a pagar</span>
+              <span>${money(total)}</span>
+            </div>
+            <small>💰 Pago en efectivo o Yape/Plin al ${fulfillment === 'delivery' ? 'recibir tu pedido' : 'recoger en el local'}.</small>
+          </div>
+
+          <div class="error" id="formError"></div>
+          <button type="submit" class="button" style="width:100%; padding:14px; font-size:16px;">
+            Confirmar y Enviar Pedido →
+          </button>
+        </form>
+      `;
+
+      $('#modal').classList.add('show');
+    }
+
+    function setFulfillment(type) {
+      fulfillment = type;
+      renderCheckoutForm();
+    }
+
+    async function placeOrder() {
+      const name = $('#custName').value.trim();
+      const phone = $('#custPhone').value.trim();
+      const address = $('#custAddress')?.value.trim() || '';
+      const notes = $('#custNotes')?.value.trim() || '';
+
+      if (!name || !phone) {
+        $('#formError').textContent = 'Por favor completa tu nombre y número de contacto.';
+        return;
+      }
+      if (fulfillment === 'delivery' && !address) {
+        $('#formError').textContent = 'Por favor ingresa la dirección para el delivery.';
+        return;
+      }
+
+      const orderPayload = {
+        items: cart,
+        fulfillment,
+        customer: { name, phone, address, notes }
+      };
+
+      let createdOrder = null;
+
+      try {
+        const res = await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderPayload)
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          createdOrder = data.order;
+        } else {
+          $('#formError').textContent = data.error || 'No se pudo crear el pedido.';
+          return;
+        }
+      } catch (err) {
+        // Offline / client fallback
+        const { subtotal, deliveryFee, total } = getTotals();
+        const fakeId = `ESQ-${Date.now().toString(36).toUpperCase()}`;
+        createdOrder = {
+          id: fakeId,
+          createdAt: new Date().toISOString(),
+          status: 'nuevo',
+          fulfillment,
+          items: cart.map(item => {
+            const p = menu.find(x => x.id === item.id);
+            return { id: item.id, name: p?.name || 'Producto', price: p?.price || 0, quantity: item.quantity };
+          }),
+          subtotal,
+          deliveryFee,
+          total,
+          customer: { name, phone, address, notes }
+        };
+      }
+
+      // Save order to client-side order history
+      const localHistory = JSON.parse(localStorage.getItem('esq-orders-history') || '[]');
+      localHistory.unshift(createdOrder);
+      localStorage.setItem('esq-orders-history', JSON.stringify(localHistory));
+
+      // Clear cart
+      cart = [];
+      saveCart();
+
+      // Build WhatsApp message
+      const itemsListText = createdOrder.items.map(i => `• ${i.quantity}x ${i.name} (S/ ${(i.price * i.quantity).toFixed(2)})`).join('%0A');
+      const waMessage = `¡Hola La Esquina! Acabo de hacer el pedido *${createdOrder.id}*:%0A%0A*Cliente:* ${encodeURIComponent(name)}%0A*Teléfono:* ${encodeURIComponent(phone)}%0A*Modalidad:* ${fulfillment === 'delivery' ? 'Delivery a ' + encodeURIComponent(address) : 'Recojo en tienda'}%0A${notes ? '*Nota:* ' + encodeURIComponent(notes) + '%0A' : ''}%0A*Detalle:*%0A${itemsListText}%0A%0A*Total:* S/ ${createdOrder.total.toFixed(2)}`;
+      const waUrl = `https://wa.me/51987654321?text=${waMessage}`;
+
+      $('#modalBody').innerHTML = `
+        <button class="close" style="position: absolute; top: 18px; right: 20px;" onclick="closeModal()" aria-label="Cerrar">×</button>
+        <div class="eyebrow" style="color:#16a34a">✓ Pedido registrado con éxito</div>
+        <h2>¡Tu comida ya<br>está en marcha!</h2>
+        <p style="color:var(--muted); margin: 6px 0 16px;">Guarda este código para revisar el avance de tu pedido:</p>
+        
+        <div class="order-id">${createdOrder.id}</div>
+
+        <div class="status-tracker">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong>Estado: <span style="color:var(--coral); text-transform:uppercase;">${createdOrder.status}</span></strong>
+            <small style="font-family:'DM Mono';">Total: ${money(createdOrder.total)}</small>
+          </div>
+          <div class="tracker-steps">
+            <div class="tracker-step current">1. Recibido</div>
+            <div class="tracker-step">2. En Cocina</div>
+            <div class="tracker-step">3. Listo / En Camino</div>
+            <div class="tracker-step">4. Entregado</div>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+          <a href="${waUrl}" target="_blank" rel="noopener" class="button whatsapp">
+            📲 Enviar confirmación a WhatsApp ↗
+          </a>
+          <button class="button secondary" onclick="closeModal(); openStatus('${createdOrder.id}')">
+            🔍 Consultar estado en vivo
+          </button>
+        </div>
+      `;
+    }
+
+    function openStatus(prefillId = '') {
+      $('#modalBody').innerHTML = `
+        <button class="close" style="position: absolute; top: 18px; right: 20px;" onclick="closeModal()" aria-label="Cerrar">×</button>
+        <div class="eyebrow">Rastreo de pedido</div>
+        <h2>¿Cómo va<br>tu comida?</h2>
+        <p style="color:var(--muted); margin: 6px 0 16px;">Ingresa el código que te dimos al confirmar tu pedido:</p>
+        
+        <form onsubmit="event.preventDefault(); lookupStatus();">
+          <label class="field">
+            Código de pedido (Ej. ESQ-...)
+            <input id="statusInput" required value="${prefillId}" placeholder="ESQ-XXXXX">
+          </label>
+          <div class="error" id="statusError"></div>
+          <button type="submit" class="button" style="width:100%; margin-top:10px;">
+            Consultar Estado
+          </button>
+        </form>
+
+        <div id="statusResult"></div>
+      `;
+      $('#modal').classList.add('show');
+      if (prefillId) lookupStatus();
+    }
+
+    async function lookupStatus() {
+      const code = ($('#statusInput')?.value || '').trim();
+      if (!code) return;
+
+      let order = null;
+
+      try {
+        const res = await fetch('/api/orders/' + encodeURIComponent(code));
+        if (res.ok) {
+          const data = await res.json();
+          order = data.order;
+        }
+      } catch (e) {
+        // Fallback to local history
+      }
+
+      if (!order) {
+        const localHistory = JSON.parse(localStorage.getItem('esq-orders-history') || '[]');
+        order = localHistory.find(o => o.id.toUpperCase() === code.toUpperCase());
+      }
+
+      if (!order) {
+        $('#statusError').textContent = 'No encontramos ningún pedido con ese código. Revisa que esté escrito correctamente.';
+        $('#statusResult').innerHTML = '';
+        return;
+      }
+
+      $('#statusError').textContent = '';
+
+      const statuses = ['nuevo', 'preparando', 'listo', 'entregado'];
+      const currentIndex = statuses.indexOf(order.status.toLowerCase());
+
+      $('#statusResult').innerHTML = `
+        <div class="status-tracker" style="margin-top:20px;">
+          <div style="display:flex; justify-content:space-between;">
+            <div>
+              <span class="eyebrow">${order.fulfillment === 'delivery' ? '🛵 Delivery' : '🏠 Recojo'}</span>
+              <h3 style="margin:4px 0 0; text-transform:uppercase;">${order.status}</h3>
+            </div>
+            <div style="text-align:right">
+              <span style="font-family:'DM Mono'; font-weight:700;">${money(order.total)}</span>
+              <small style="display:block; color:var(--muted);">${new Date(order.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
+            </div>
+          </div>
+
+          <div class="tracker-steps">
+            <div class="tracker-step ${currentIndex >= 0 ? (currentIndex === 0 ? 'current' : 'done') : ''}">1. Recibido</div>
+            <div class="tracker-step ${currentIndex >= 1 ? (currentIndex === 1 ? 'current' : 'done') : ''}">2. En Cocina</div>
+            <div class="tracker-step ${currentIndex >= 2 ? (currentIndex === 2 ? 'current' : 'done') : ''}">3. En Camino</div>
+            <div class="tracker-step ${currentIndex >= 3 ? 'done' : ''}">4. Entregado</div>
+          </div>
+          
+          <div style="margin-top:14px; font-size:13px; color:var(--muted);">
+            ${order.items.map(i => `${i.quantity}x ${i.name}`).join(' · ')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Admin Functions
+    function showAdmin() {
+      $('#store').hidden = true;
+      $('#admin').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (adminToken) {
+        loadOrders();
+      }
+    }
+
+    function hideAdmin() {
+      $('#admin').classList.remove('show');
+      $('#store').hidden = false;
+    }
+
+    async function loginAdmin() {
+      const username = $('#adminUser').value.trim();
+      const password = $('#adminPass').value.trim();
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          $('#loginError').textContent = data.error || 'Credenciales inválidas.';
+          return;
+        }
+
+        adminToken = data.token;
+        sessionStorage.setItem('esq-admin', adminToken);
+        $('#loginError').textContent = '';
+        loadOrders();
+      } catch (err) {
+        // Local demo login fallback
+        if (username === 'admin' && password === 'esquina-demo-2026') {
+          adminToken = 'local-demo-token';
+          sessionStorage.setItem('esq-admin', adminToken);
+          loadOrders();
+        } else {
+          $('#loginError').textContent = 'Error al conectar con el servidor.';
+        }
+      }
+    }
+
+    function logoutAdmin() {
+      adminToken = '';
+      sessionStorage.removeItem('esq-admin');
+      $('#loginPanel').hidden = false;
+      $('#ordersPanel').hidden = true;
+    }
+
+    async function loadOrders() {
+      let orders = [];
+
+      try {
+        const res = await fetch('/api/admin/orders', {
+          headers: { 'Authorization': 'Bearer ' + adminToken }
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          orders = data.orders || [];
+        }
+      } catch (err) {
+        // Fallback to local storage
+      }
+
+      if (!orders.length) {
+        orders = JSON.parse(localStorage.getItem('esq-orders-history') || '[]');
+      }
+
+      $('#loginPanel').hidden = true;
+      $('#ordersPanel').hidden = false;
+
+      if (!orders.length) {
+        $('#ordersList').innerHTML = '<p class="empty">Aún no se han recibido pedidos. Realiza un pedido de prueba desde la tienda.</p>';
+        return;
+      }
+
+      $('#ordersList').innerHTML = orders.map(o => `
+        <article class="admin-order">
+          <div>
+            <h4>${o.id} · <span style="font-weight:normal; font-size:14px; color:var(--muted);">${new Date(o.createdAt).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</span></h4>
+            <p><strong>Cliente:</strong> ${o.customer?.name || 'Anónimo'} &nbsp;·&nbsp; <strong>Tel:</strong> <a href="tel:${o.customer?.phone}">${o.customer?.phone || 'Sin teléfono'}</a></p>
+            <p><strong>Modalidad:</strong> ${o.fulfillment === 'delivery' ? '🛵 Delivery: ' + (o.customer?.address || 'Sin dirección') : '🏠 Recojo en tienda'}</p>
+            <p><strong>Productos:</strong> ${o.items.map(i => `${i.quantity}× ${i.name}`).join(', ')}</p>
+            ${o.customer?.notes ? `<p><strong>Nota:</strong> <em>${o.customer.notes}</em></p>` : ''}
+            <p><strong>Total:</strong> <span style="font-family:'DM Mono'; font-weight:700; color:var(--coral); font-size:15px;">${money(o.total)}</span></p>
+          </div>
+          <div style="display:flex; flex-direction:column; justify-content:center; gap:8px;">
+            <label style="font-size:11px; font-family:'DM Mono';">ESTADO:</label>
+            <select onchange="updateOrderStatus('${o.id}', this.value)">
+              ${['nuevo', 'preparando', 'listo', 'entregado', 'cancelado'].map(s => `
+                <option value="${s}" ${s === o.status.toLowerCase() ? 'selected' : ''}>${s.toUpperCase()}</option>
+              `).join('')}
+            </select>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    async function updateOrderStatus(id, newStatus) {
+      try {
+        const res = await fetch('/api/admin/orders/' + encodeURIComponent(id), {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + adminToken
+          },
+          body: JSON.stringify({ status: newStatus })
+        });
+
+        if (res.ok) {
+          toast('✓ Estado actualizado a ' + newStatus.toUpperCase());
+        }
+      } catch (e) {
+        // Update local history
+      }
+
+      // Sync local storage
+      const localHistory = JSON.parse(localStorage.getItem('esq-orders-history') || '[]');
+      const found = localHistory.find(o => o.id === id);
+      if (found) {
+        found.status = newStatus;
+        localStorage.setItem('esq-orders-history', JSON.stringify(localHistory));
+      }
+
+      loadOrders();
+    }
+
+    window.addEventListener('hashchange', () => {
+      if (location.hash === '#admin') showAdmin();
+      else hideAdmin();
+    });
+
+    // Start application
+    init();
+  </script>
+</body>
+</html>

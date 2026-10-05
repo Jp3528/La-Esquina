@@ -1,0 +1,21 @@
+{
+  "name": "la-esquina-pollo-crujiente",
+  "version": "1.0.0",
+  "description": "Plataforma web de pedidos para restaurante rápido con seguimiento en tiempo real y panel de cocina",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "restaurante",
+    "fast-food",
+    "delivery",
+    "landing-page",
+    "vercel",
+    "serverless",
+    "ecommerce"
+  ],
+  "author": "Jp3528",
+  "license": "MIT"
+}

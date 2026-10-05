@@ -15,13 +15,16 @@ const MIME_TYPES = {
   '.jpeg': 'image/jpeg',
   '.svg': 'image/svg+xml',
   '.json': 'application/json; charset=utf-8',
-  '.ico': 'image/x-icon'
+  '.ico': 'image/x-icon',
+  '.txt': 'text/plain; charset=utf-8'
 };
 
 function staticFile(res, pathname) {
   let target;
   if (pathname === '/' || pathname === '/index.html') {
     target = path.join(ROOT, 'index.html');
+  } else if (pathname === '/robots.txt') {
+    target = path.join(ROOT, 'robots.txt');
   } else if (pathname.startsWith('/assets/')) {
     target = path.normalize(path.join(ROOT, pathname));
     const assetsRoot = path.join(ROOT, 'assets') + path.sep;
